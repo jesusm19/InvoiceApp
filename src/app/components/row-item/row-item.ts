@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Item } from '../../models/item-model';
 import { CurrencyPipe } from '@angular/common';
 
@@ -11,5 +11,9 @@ import { CurrencyPipe } from '@angular/common';
 export class RowItemComponent {
 
   @Input({required: true}) item!: Item;
+  @Output() removeItemEmitter: EventEmitter<number> = new EventEmitter<number>();
 
+  removeItem(id: number): void {
+    this.removeItemEmitter.emit(id);
+  }
 }

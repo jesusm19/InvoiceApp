@@ -3,3 +3,7 @@
     <td>{{ item.product }}</td>
     <td>{{ item.price | currency }}</td>
     <td>{{ item.quantity }}</td>
+    <td>
+        <button class="btn btn-danger btn-sm" (click)="removeItem(item.id)">Eliminar</button>
+    </td>
+

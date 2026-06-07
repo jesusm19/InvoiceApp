@@ -1,0 +1,54 @@
+<form class="my-3 w-50" 
+    (ngSubmit)="addItem(form)" #form="ngForm">
+
+    <div class="mb-3">
+        <input type="text"
+            class="form-control m-3"
+            placeholder="Descripción del producto"
+            id="description" 
+            name="product" 
+            [(ngModel)]="item.product"
+            required
+            #product="ngModel">
+
+            @if (product.invalid && (product.dirty || product.touched)) {
+                <div class="alert alert-danger m-3">
+                    La descripción del producto es requerida.
+                </div>
+            }
+    </div>
+    
+    <div class="mb-3">
+        <input type="number"
+            placeholder="Cantidad del producto" 
+            class="form-control m-3"
+            id="quantity" 
+            name="quantity" 
+            [(ngModel)]="item.quantity"
+            required
+            #quantity="ngModel">
+            @if (quantity.invalid && (quantity.dirty || quantity.touched)) {
+                <div class="alert alert-danger m-3">
+                    La cantidad del producto es requerida.
+                </div>
+            }
+    </div>
+    
+    <div class="mb-3">
+        <input type="number" 
+            placeholder="Precio del producto"
+            class="form-control m-3" 
+            id="price" 
+            name="price" 
+            [(ngModel)]="item.price"
+            required
+            #price="ngModel">
+            @if (price.invalid && (price.dirty || price.touched)) {
+                <div class="alert alert-danger m-3">
+                    El precio del producto es requerido.
+                </div>
+            }
+    </div>
+
+    <button type="submit" class="btn btn-primary m-3" [disabled]="!form.valid">Agregar</button>
+</form>

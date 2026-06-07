@@ -7,15 +7,16 @@
                 <th>Producto</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
             @for (item of items; track $index) {
-                <tr app-row-item [item]="item"></tr>
+                <tr app-row-item [item]="item" (removeItemEmitter)="removeItemById($event)"></tr>
             }
         </tbody>
     </table>
 
 } @else {
-    <div class="alert alert-warninig">No hay artículos</div>
+    <div class="alert alert-warning">No hay artículos</div>
 }
